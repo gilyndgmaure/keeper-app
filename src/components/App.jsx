@@ -1,18 +1,32 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../App.css'
 import CreateArea from './CreateArea';
 import Header from './Header';
 import Note from './Note';
 
 function App() {
-  const [notes, setNotes] =useState([]);
+
+  const initNote = {
+    note: [],
+  }
+
+  const getInitialNote = () => {
+    const note = localStorage.getItem('notes');
+    return note ? JSON.parse(note) : initNote;
+  }
+
+  const [notes, setNotes] = useState(getInitialNote);
+
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes))
+  }, [notes]);
 
   function addNote(newNote) {
     setNotes(prevNotes => {
       return [...prevNotes, newNote];
     });
   }
-
+ 
   return (
     <>
     <div>
@@ -34,4 +48,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

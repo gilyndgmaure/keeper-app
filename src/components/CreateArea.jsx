@@ -2,11 +2,14 @@ import AddIcon from '@mui/icons-material/Add';
 import { useState } from 'react';
 
 function CreateArea(props) {
+
     
     const [note, setNote] = useState({
         title: "",
         content: ""
     });
+    
+
 
     function handleChange(event){
         const { name, value } = event.target;
@@ -18,7 +21,7 @@ function CreateArea(props) {
             };
         });
     }
-
+    
     function submitNote(event) {
         // eslint-disable-next-line react/prop-types
         props.onAdd(note);
@@ -28,6 +31,9 @@ function CreateArea(props) {
         });
         event.preventDefault();
       }
+
+     
+     
     
     return (
         <>
