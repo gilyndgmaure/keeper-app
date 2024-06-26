@@ -3,6 +3,7 @@ import '../App.css'
 import CreateArea from './CreateArea';
 import Header from './Header';
 import Note from './Note';
+import Footer from './Footer';
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
             />
           );
         })}
+        <Footer />
     </div>
       
     </>
